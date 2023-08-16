@@ -2,6 +2,7 @@ import RestaurentCard from "./RestaurentCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../Utils/useOnlineStatus";
 const Body = () => {
   const [Listofrestaurents, setListofrestaurents] = useState([]);
   const [filteredrestaurents, setfilteredrestaurents] = useState([]);
@@ -29,8 +30,13 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const jsondata = await response.json();
+    console.log(jsondata);
     setStateVariable(jsondata);
   };
+
+  const onlinestatus = useOnlineStatus();
+  if (onlinestatus === false)
+    return <h1>Opps...! Looks like you are offline!</h1>;
 
   if (Listofrestaurents.length === 0) {
     return <Shimmer />;
@@ -76,6 +82,7 @@ const Body = () => {
       <div className="res-container">
         {filteredrestaurents.map((restaurants) => (
           <Link
+            className="res-link"
             key={restaurants.info.id}
             to={"/restaurants/" + restaurants.info.id}
           >

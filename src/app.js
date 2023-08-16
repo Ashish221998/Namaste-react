@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -7,6 +7,7 @@ import About from "./components/About";
 import Contactus from "./components/Contactus";
 import Error from "./components/Error";
 import Restaurentmenu from "./components/Restaurentmenu";
+
 /***
  * HEADER
  * -LOGO
@@ -21,28 +22,19 @@ import Restaurentmenu from "./components/Restaurentmenu";
  * -ADDRESS
  * -CONTACT US
  */
-
+const Grocery = lazy(() => import("./components/Grocery"));
 const AppLayout = () => {
   return (
     <div className="app">
-<<<<<<< HEAD
       <React.Fragment>
         <Header />
         <Outlet />
       </React.Fragment>
-=======
-      <Header />
-      <Outlet />
->>>>>>> 83ca254ddb38f47fe851dff2f1f345298bbec3c7
     </div>
   );
 };
 
-<<<<<<< HEAD
 const appRouter = createBrowserRouter([
-=======
-const approuter = createBrowserRouter([
->>>>>>> 83ca254ddb38f47fe851dff2f1f345298bbec3c7
   {
     path: "/",
     element: <AppLayout />,
@@ -60,6 +52,14 @@ const approuter = createBrowserRouter([
         element: <Contactus />,
       },
       {
+        path: "/Grocery",
+        element: (
+          <Suspense fallback={<h1>Loading please wait.....</h1>}>
+            <Grocery />
+          </Suspense>
+        ),
+      },
+      {
         path: "/restaurants/:resId",
         element: <Restaurentmenu />,
       },
@@ -70,8 +70,4 @@ const approuter = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-<<<<<<< HEAD
 root.render(<RouterProvider router={appRouter} />);
-=======
-root.render(<RouterProvider router={approuter} />);
->>>>>>> 83ca254ddb38f47fe851dff2f1f345298bbec3c7

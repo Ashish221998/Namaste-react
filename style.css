@@ -13,7 +13,7 @@
   display: flex;
   flex-wrap: wrap;
   margin: 5px;
-  text-decoration: none;
+  gap: 20px;
 }
 .nav-items > ul {
   display: flex;
@@ -28,9 +28,10 @@
 }
 
 .food-card {
-  margin: 8px;
-  padding: 8px;
+  margin: 5px;
+  padding: 10px;
   width: 200px;
+  height: 400px;
   cursor: pointer;
   background-color: grey;
   word-break: break-all;
@@ -92,4 +93,13 @@
   margin: 3px;
   border: 1px solid blacks;
   cursor: pointer;
+}
+
+.res-link {
+  text-decoration: none;
+  color: black;
+}
+
+.menu-items {
+  justify-content: center;
 }
