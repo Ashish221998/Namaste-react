@@ -15,7 +15,7 @@ const Body = () => {
 
   const setStateVariable = (jsondata) => {
     jsondata.data.cards.map((item) => {
-      if (item.card.card.id === "restaurant_grid_listing") {
+      if (item.card.card.id === "top_brands_for_you") {
         setListofrestaurents(
           item.card.card.gridElements.infoWithStyle.restaurants
         );
@@ -28,7 +28,7 @@ const Body = () => {
 
   const fetchData = async () => {
     const response = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999"
     );
     const jsondata = await response.json();
     console.log(jsondata);
@@ -80,7 +80,7 @@ const Body = () => {
           Top rated restaurents
         </button>
       </div>
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-4">
         {filteredrestaurents.map((restaurants) => (
           <Link
             className="res-link"
