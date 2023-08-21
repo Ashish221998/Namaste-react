@@ -7,7 +7,7 @@ const Header = () => {
   const [btnname, setbtnname] = useState("Signin ");
   const onlinestatus = useOnlineStatus();
   return (
-    <div className="flex justify-between bg-pink-50 shadow-lg m-2">
+    <div className="flex justify-between font-bold bg-pink-50 shadow-lg m-2">
       <div className="logo-container">
         <img className="w-56 bg-pink-50" src={LOGO_URL}></img>
       </div>
@@ -16,17 +16,17 @@ const Header = () => {
           <li className="px-4 hover:text-yellow-500">
             online:{onlinestatus ? "✅" : "🔴"}
           </li>
-          <li className="px-4 hover:text-yellow-500">
+          <li className="px-4 font-bold hover:text-yellow-500">
             <Link to="/">Home</Link>
           </li>
-          <li className="px-4  hover:text-yellow-500">
+          <li className="px-4 font-bold hover:text-yellow-500">
             <Link to="/About">AboutUs</Link>
           </li>
-          <li className="px-4  hover:text-yellow-500">Cart</li>{" "}
-          <li className="px-4  hover:text-yellow-500">
+          <li className="px-4 font-bold hover:text-yellow-500">Cart</li>{" "}
+          <li className="px-4 font-bold hover:text-yellow-500">
             <Link to="/Contact">ContactUs</Link>
           </li>
-          <li className="px-4  hover:text-yellow-500">
+          <li className="px-4 font-bold hover:text-yellow-500">
             <Link to="/Grocery">Grocery</Link>
           </li>
           <button
