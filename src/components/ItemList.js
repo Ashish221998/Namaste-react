@@ -25,7 +25,7 @@ const ItemList = ({ items }) => {
             <div className="w-3/12 p-4 ">
               <div className="absolute">
                 <button className="p-2 mx-12  rounded-lg bg-black text-white shadow-lg ">
-                  ADD +
+                  - ADD +
                 </button>
               </div>
               <img
