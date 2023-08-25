@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { CDN_URL } from "../Utils/Constants";
 import { BsStarFill } from "react-icons/bs";
+
 import UserContext from "../Utils/UserContext";
 const RestaurentCard = (props) => {
   const { resData } = props;

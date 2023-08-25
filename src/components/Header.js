@@ -3,11 +3,14 @@ import { LOGO_URL } from "../Utils/Constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../Utils/useOnlineStatus";
 import UserContext from "../Utils/UserContext";
+import { AiOutlineShoppingCart } from "react-icons/Ai";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [btnname, setbtnname] = useState("Signin ");
   const onlinestatus = useOnlineStatus();
   const { loggedInUser } = useContext(UserContext);
+  const cartItems = useSelector((store) => store.cart.items);
   return (
     <div className="flex justify-between font-bold bg-pink-50 shadow-lg m-2">
       <div className="logo-container">
@@ -22,13 +25,13 @@ const Header = () => {
             <Link to="/">Home</Link>
           </li>
           <li className="px-4 font-bold hover:text-yellow-500">
-            <Link to="/About">AboutUs</Link>
+            <Link to="/About">AboutMe</Link>
           </li>
-          <li className="px-4 font-bold hover:text-yellow-500 cursor-pointer">
-            Cart
-          </li>{" "}
+          <li className="px-4 text-lg cursor-pointer">
+            <Link to="/cart">Cart-({cartItems.length})</Link>
+          </li>
           <li className="px-4 font-bold hover:text-yellow-500">
-            <Link to="/Contact">ContactUs</Link>
+            <Link to="/Contact">Contact Me</Link>
           </li>
           <li className="px-4 font-bold hover:text-yellow-500">
             <Link to="/Grocery">Grocery</Link>
