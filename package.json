@@ -4,7 +4,7 @@
   "description": "learning react",
   "main": "app.js",
   "scripts": {
-    "start": "parcel index.html",
+    "start": "parcel index.html --port 3003",
     "build": "parcel build index.html",
     "test": "jest"
   },
